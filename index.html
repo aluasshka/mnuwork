@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MATERNLEX — защита трудовых прав</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FAF7F2;--card:#fff;--alt:#F2ECE1;--ac:#B81D24;--ach:#8E151B;--on:#fff;--tx:#1C1B1A;--tx2:#57534E;--ln:#E2DACD;--r:14px}
+[data-s="2"]{--bg:#F3F2F0;--alt:#E8E6E3;--ac:#9F1D24;--ach:#7A1219;--ln:#D6D3CE}
+[data-s="3"]{--bg:#F6EFE3;--alt:#EBDFCB;--ac:#7A1F2B;--ach:#5A1620;--ln:#D9CAB0}
+[data-s="4"]{--bg:#fff;--alt:#F0F0F0;--ac:#1C1B1A;--ach:#000;--ln:#DCDCDC}
+[data-m="d"]{--bg:#161514;--card:#201F1D;--alt:#1B1A19;--tx:#F3EFE8;--tx2:#B5AEA4;--ln:#37332F}
+[data-m="d"][data-s="4"]{--ac:#E8E4DC;--ach:#fff;--on:#111}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 Inter,sans-serif}
+h1,h2,h3,.logo{font-family:'Playfair Display',Georgia,serif;line-height:1.2;margin:0 0 .5em}
+a{color:var(--ac)}a:hover{color:var(--ach)}
+.w{max-width:1120px;margin:auto;padding:0 20px}
+header{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--ln)}
+header .w{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-size:22px;font-weight:700;color:var(--tx);text-decoration:none;letter-spacing:.04em}
+.logo b{color:var(--ac)}
+nav{display:flex;gap:2px;flex-wrap:wrap}
+nav a{padding:6px 9px;border-radius:10px;font-size:13px;color:var(--tx2);text-decoration:none;cursor:pointer}
+nav a:hover,nav a.on{background:var(--alt);color:var(--ac)}
+#bg{display:none;background:none;border:1px solid var(--ln);border-radius:10px;padding:8px 12px;color:var(--tx);font:inherit}
+@media(max-width:1000px){#bg{display:block}nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg);padding:10px 20px;border-bottom:1px solid var(--ln);flex-direction:column}nav.o{display:flex}}
+section.p{display:none;padding:48px 0}section.p.on{display:block}
+.btn{display:inline-block;background:var(--ac);color:var(--on);border:1px solid var(--ac);padding:11px 20px;border-radius:var(--r);font:500 15px Inter,sans-serif;cursor:pointer;text-decoration:none;margin:0 8px 8px 0}
+.btn:hover{background:var(--ach);color:var(--on)}
+.btn.o{background:none;color:var(--ac)}.btn.o:hover{background:var(--alt);color:var(--ach)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:var(--r);padding:22px;transition:box-shadow .25s,border-color .25s;transform-style:preserve-3d}
+.card:hover{border-color:var(--ac);box-shadow:0 0 0 1px var(--ac),0 10px 30px color-mix(in srgb,var(--ac) 22%,transparent)}
+.card h3{font-size:19px}.card p{color:var(--tx2);margin:0 0 .6em;font-size:15px}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;padding:40px 0}
+@media(max-width:800px){.hero{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(34px,5vw,56px)}
+.hero h1 span{display:inline-block;opacity:0;transform:translateY(14px);animation:up .7s forwards}
+@keyframes up{to{opacity:1;transform:none}}
+.by{border-left:3px solid var(--ac);padding:4px 14px;margin:18px 0;background:var(--alt);border-radius:0 var(--r) var(--r) 0;font-size:14px;color:var(--tx2)}
+.by b{font-family:'Playfair Display',serif;color:var(--tx);font-size:17px}
+.sticky{height:300vh;position:relative}
+.sticky>div{position:sticky;top:64px;height:calc(100vh - 64px);display:flex;align-items:center;justify-content:center;overflow:hidden}
+#circ{position:absolute;width:60vmin;height:60vmin;border-radius:50%;background:radial-gradient(circle,var(--alt),color-mix(in srgb,var(--ac) 30%,var(--alt)));border:1px solid var(--ln);transform:scale(.3)}
+.th{position:relative;max-width:520px;padding:0 20px;text-align:center;opacity:0;transition:opacity .4s,transform .4s;transform:translateY(16px);position:absolute}
+.th.on{opacity:1;transform:none}.th h3{font-size:26px}
+@media(max-width:800px){.sticky{height:auto}.sticky>div{position:static;height:auto;display:block}#circ{display:none}.th{position:static;opacity:1;transform:none;margin:14px 0;padding:18px;background:var(--card);border:1px solid var(--ln);border-radius:var(--r)}}
+.src{margin-top:16px;padding-top:12px;border-top:1px solid var(--ln);font-size:13px;color:var(--tx2)}.src b{display:block;margin-bottom:4px}
+.art{margin-bottom:12px;background:var(--card);border:1px solid var(--ln);border-radius:var(--r)}
+.art summary{padding:16px 20px;cursor:pointer;font:600 18px 'Playfair Display',serif}
+.art .in{padding:0 20px 18px}.art h4{margin:14px 0 2px;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--ac)}.art p{margin:0}
+input,textarea,select{width:100%;padding:11px 14px;border:1px solid var(--ln);border-radius:var(--r);background:var(--card);color:var(--tx);font:inherit;margin:4px 0 12px}
+textarea{min-height:180px}
+.res{padding:10px 14px;border-radius:12px;margin:8px 0;border:1px solid var(--ln);background:var(--card)}
+.res.f{border-left:4px solid #3f7d4e}.res.c{border-left:4px solid #b7791f}.res.r{border-left:4px solid var(--ac)}
+.note{background:var(--alt);border-radius:var(--r);padding:12px 16px;font-size:14px;color:var(--tx2);margin:16px 0}
+.opt{display:block;width:100%;text-align:left;margin:6px 0;padding:11px 14px;border:1px solid var(--ln);border-radius:12px;background:var(--card);color:var(--tx);font:inherit;cursor:pointer}
+.opt:hover{border-color:var(--ac)}.opt.ok{border-color:#3f7d4e;background:color-mix(in srgb,#3f7d4e 14%,var(--card))}.opt.no{border-color:var(--ac)}
+mark{background:color-mix(in srgb,var(--ac) 25%,transparent);color:inherit}
+footer{border-top:1px solid var(--ln);padding:30px 0;font-size:14px;color:var(--tx2)}
+#tp{position:fixed;right:16px;bottom:16px;z-index:30}
+#tp>button{width:46px;height:46px;border-radius:50%;border:1px solid var(--ln);background:var(--card);color:var(--ac);cursor:pointer;font:600 14px Inter}
+#tpb{display:none;position:absolute;right:0;bottom:56px;width:250px;background:var(--card);border:1px solid var(--ln);border-radius:var(--r);padding:14px}
+#tpb.o{display:block}#tpb button{margin:3px 3px 3px 0;padding:6px 10px;border:1px solid var(--ln);border-radius:10px;background:none;color:var(--tx);cursor:pointer;font:13px Inter}
+@media print{header,#tp,footer{display:none}}
+</style>
+</head>
+<body>
+<header><div class="w"><a class="logo" href="#home">MATERN<b>LEX</b></a><button id="bg" aria-label="Меню">Меню</button><nav id="nav"></nav></div></header>
+<main class="w" id="app"></main>
+<footer><div class="w"><b>О проекте.</b> MATERNLEX — информационная Legal Tech-платформа по трудовому праву Республики Казахстан. Создатель проекта — Қуандық Алуа Дәуренқызы. ИИ-инструменты (ChatGPT, Claude) использовались как вспомогательные.
+<p>Материалы MATERNLEX носят информационно-правовой характер и не заменяют индивидуальную юридическую консультацию. Применение норм законодательства зависит от конкретных обстоятельств. Перед принятием юридически значимых решений рекомендуется проверить актуальную редакцию нормативных правовых актов.</p></div></footer>
+<div id="tp"><div id="tpb"><b>Режим</b><br><button data-m="l">Светлый</button><button data-m="d">Тёмный</button><br><b>Цветовая схема</b><br><button data-s="1">Кремовая</button><button data-s="2">Графитово-красная</button><button data-s="3">Песочно-бордовая</button><button data-s="4">Монохромная</button></div><button id="tpt" aria-label="Настройки отображения">Aa</button></div>
+
+<script>
+const AD='https://adilet.zan.kz/rus/docs/K1500000414',PG='https://prg.kz/m/amp/document/38910832/',CHK='Проверено по открытым источникам: ноябрь 2026 г.';
+const SRC=`<div class="src"><b>Нормативная правовая база и источники</b>Трудовой кодекс Республики Казахстан от 23 ноября 2015 года № 414-V ЗРК. <a href="${AD}" target="_blank" rel="noopener">Adilet</a> · <a href="${PG}" target="_blank" rel="noopener">Paragraf (prg.kz)</a>. Ссылки ведут на кодекс целиком: номер нужной статьи найдите по названию темы в актуальной редакции (в 2026 году в кодекс вносились изменения). Номера статей здесь намеренно не указаны, пока не сверены с текстом. Отделяйте текст закона от пояснений ниже: пояснения носят информационный характер.</div>`;
+// Материалы: c=раздел (w/p/h)
+const A=[
+{c:'w',t:'Трудовой договор',s:'Письменное соглашение работника и работодателя о труде. Начало работы без оформления договора — нарушение.',g:'Кодекс предусматривает обязательные условия договора и его письменную форму; договор регистрируется работодателем в государственной системе учёта трудовых договоров.',a:'Потребуйте экземпляр договора и приказ о приёме. При отказе — обращайтесь в государственную инспекцию труда.',d:'Договор, приказ о приёме, переписка, график, расчётные листки.',o:'Государственная инспекция труда, работодатель (письменно).'},
+{c:'w',t:'Заработная плата',s:'Вознаграждение за труд в сроки и размере, определённых договором и кодексом.',g:'Кодекс устанавливает периодичность выплаты (не реже одного раза в месяц) и обязанность выдавать расчётный листок. При задержке предусмотрена ответственность работодателя.',a:'Направьте письменное обращение работодателю, сохраните доказательства задержки, затем обратитесь в инспекцию труда.',d:'Договор, расчётные листки, выписка со счёта, переписка.',o:'Работодатель, инспекция труда, при споре — суд.'},
+{c:'w',t:'Рабочее время и отдых',s:'Нормальная продолжительность рабочего времени — не более 40 часов в неделю; сверхурочная работа допускается только в случаях и порядке, предусмотренных кодексом.',g:'Работнику положены перерывы, выходные дни и ежегодный оплачиваемый отпуск (не менее 24 календарных дней).',n:'Условия для отдельных категорий работников и режимов (сменная работа, суммированный учёт) могут отличаться.',a:'Фиксируйте фактически отработанное время.',d:'Табель, график, приказы, переписка.',o:'Инспекция труда.'},
+{c:'w',t:'Расторжение договора и увольнение',s:'Прекращение договора возможно только по основаниям и в порядке, установленном кодексом.',g:'Работодатель обязан соблюдать основания, сроки уведомления и порядок. Нельзя принуждать к «добровольному» заявлению.',n:'Конкретные основания и процедура зависят от случая — требуется индивидуальная оценка.',a:'Не подписывайте документы, не прочитав; требуйте копии. Оспорить увольнение можно через инспекцию труда или суд.',d:'Приказ об увольнении, договор, уведомления, трудовая книжка/выписка.',o:'Инспекция труда, суд.'},
+{c:'p',t:'Отказ в приёме на работу из-за беременности',s:'Дискриминация по признаку беременности в сфере труда запрещена.',g:'Кодекс запрещает дискриминацию и ограничивает отказ в заключении договора с беременными женщинами.',n:'Отказ по объективным, не связанным с беременностью причинам (например, несоответствие квалификации) возможен — важно, какова реальная причина.',a:'Запросите отказ в письменной форме с указанием причины и сохраните переписку.',d:'Объявление о вакансии, переписка, письменный отказ, подтверждение беременности.',o:'Инспекция труда, суд.'},
+{c:'p',t:'Увольнение беременной женщины',s:'Для беременных женщин и женщин с малолетними детьми кодекс устанавливает усиленную защиту от увольнения по инициативе работодателя.',g:'Расторжение по инициативе работодателя ограничено; исключения предусмотрены кодексом (например, ликвидация организации).',n:'Не всякая ситуация подпадает под защиту: учитывайте основание увольнения и исключения.',a:'Не подписывайте заявление под давлением. Подайте письменное обращение работодателю, затем — в инспекцию труда.',d:'Справка о беременности, приказ, уведомления, переписка.',o:'Инспекция труда, суд.'},
+{c:'p',t:'Отпуск по беременности и родам',s:'Оплачиваемый отпуск до и после родов.',g:'Общая продолжительность — 126 календарных дней (70 до и 56 после родов); при осложнениях и многоплодных родах — дольше, согласно кодексу.',n:'Порядок назначения социальных выплат определяется отдельным законодательством.',a:'Подайте заявление работодателю с листком о временной нетрудоспособности.',d:'Листок нетрудоспособности, заявление, приказ.',o:'Работодатель, инспекция труда.'},
+{c:'p',t:'Отпуск по уходу за ребёнком и возвращение к работе',s:'Работница вправе взять отпуск без сохранения заработной платы по уходу за ребёнком до достижения им трёх лет.',g:'За работницей сохраняется место работы; по возвращении кодекс предусматривает гарантии предоставления прежней работы.',n:'Если должность упразднена, действуют специальные правила — требуется проверка.',a:'Оформите заявление и приказ. Перед выходом уточните условия письменно.',d:'Свидетельство о рождении, заявление, приказ.',o:'Работодатель, инспекция труда.'},
+{c:'p',t:'Давление и дискриминация. Как фиксировать нарушения',s:'Принуждение к увольнению, угрозы, ухудшение условий из-за беременности могут быть нарушением.',g:'Кодекс запрещает дискриминацию; работодатель обязан соблюдать установленные гарантии.',a:'Ведите хронологию событий с датами, сохраняйте письма и приказы, запрашивайте ответы письменно.',d:'Хронология, скриншоты, копии приказов, свидетельские данные.',o:'Инспекция труда, суд.'},
+{c:'h',t:'HR: оформление договора и документов',s:'Работодатель обязан оформить письменный договор, издать приказ и вести кадровые документы.',g:'Чек-лист: стороны и реквизиты; трудовая функция; место работы; дата начала; оплата; режим времени; отпуск; права и обязанности; основания прекращения; ознакомление работника под подпись; внесение в систему учёта.',a:'Сверяйте шаблоны с актуальной редакцией кодекса.',d:'Договор, приказ, личная карточка, ознакомительные листы.',o:'Юрист организации, инспекция труда.'},
+{c:'h',t:'HR: работа с беременными работницами',s:'Недопущение дискриминации и соблюдение специальных гарантий.',g:'Чек-лист: не отказывать в приёме по причине беременности; проверять ограничения на условия труда; корректно оформлять отпуска; не инициировать увольнение вне случаев, допускаемых кодексом; фиксировать решения письменно.',a:'При сомнениях получайте юридическую консультацию.',d:'Приказы, заявления, справки, графики.',o:'Юрист, инспекция труда.'}
+];
+const CAT={w:'Права работников',p:'Права беременных женщин и матерей',h:'Работодателям и HR'};
+const artHTML=x=>`<details class="art"><summary>${x.t}</summary><div class="in"><h4>Суть вопроса</h4><p>${x.s}</p><h4>Что говорит законодательство</h4><p>${x.g}</p>${x.n?`<h4>Условия и исключения</h4><p>${x.n}</p>`:''}<h4>Что делать</h4><p>${x.a}</p><h4>Документы</h4><p>${x.d}</p><h4>Куда обращаться</h4><p>${x.o}</p>${SRC}</div></details>`;
+const KW=['стороны|работодатель|работник','должност|трудов\\w+ функци|профессия','место работы','дата начала|приступ','заработн|оклад|вознагражд|оплат','рабоч\\w+ врем|график|часов','отдых|выходн|перерыв','отпуск','права и обязанности|обязанност','изменени\\w+ (условий|договора)','расторжен|прекращен|увольн'];
+const KN=['Стороны договора','Должность и трудовая функция','Место работы','Дата начала работы','Оплата труда','Рабочее время','Время отдыха','Условия отпуска','Права и обязанности сторон','Условия изменения договора','Условия прекращения отношений'];
+const RISK=[[/по усмотрению работодателя|на усмотрение работодателя/i,'Условие «по усмотрению работодателя» может требовать юридической проверки.'],[/ненормированн|в любое время|по первому требованию/i,'Неясный график или готовность работать «в любое время» — уточните режим.'],[/размер .{0,30}(определя|устанавлива)ется работодателем|премия.{0,20}не гарантир/i,'Неопределённые условия оплаты — уточните размер и сроки.'],[/без объяснения причин|без предупреждени/i,'Неоднозначные условия прекращения отношений.'],[/отказывается от права|не вправе обращаться|отказ от всех прав/i,'Формулировка может ограничивать предусмотренные законом права работника.']];
+function check(){const t=document.getElementById('ct').value,o=[];if(t.trim().length<30)return document.getElementById('cr').innerHTML='<div class="res c">Введите текст договора (не менее 30 символов).</div>';
+KW.forEach((k,i)=>o.push(new RegExp(k,'i').test(t)?`<div class="res f"><b>Раздел найден:</b> ${KN[i]}</div>`:`<div class="res c"><b>Необходимо проверить:</b> ${KN[i]} — раздел не обнаружен.</div>`));
+RISK.forEach(r=>{const m=t.match(r[0]);if(m)o.push(`<div class="res r"><b>Возможный юридический риск:</b> ${r[1]} Найдено: <mark>${m[0].replace(/</g,'&lt;')}</mark></div>`)});
+document.getElementById('cr').innerHTML=o.join('')+'<div class="note">Это предварительная техническая проверка по ключевым словам, а не юридическая экспертиза. Окончательная оценка зависит от обстоятельств и актуального законодательства. Текст обрабатывается только в вашем браузере.</div>'}
+// Документы
+const D=[
+{n:'Заявление о предоставлении ежегодного отпуска',f:['Кому (должность, ФИО руководителя)','Организация','Ваше ФИО','Должность','Дата начала отпуска','Количество календарных дней'],t:f=>`${f[0]}\n${f[1]}\nот ${f[2]}, ${f[3]}\n\nЗАЯВЛЕНИЕ\n\nПрошу предоставить мне ежегодный оплачиваемый трудовой отпуск с ${f[4]} на ${f[5]} календарных дней.\n\nДата: ____________  Подпись: ____________`},
+{n:'Обращение по поводу задержки заработной платы',f:['Кому (должность, ФИО руководителя)','Организация','Ваше ФИО','Должность','За какой период не выплачена зарплата'],t:f=>`${f[0]}\n${f[1]}\nот ${f[2]}, ${f[3]}\n\nОБРАЩЕНИЕ\n\nЗаработная плата за период ${f[4]} мне не выплачена. Прошу выплатить причитающиеся суммы и дать письменный ответ. При отсутствии ответа оставляю за собой право обратиться в государственную инспекцию труда.\n\nДата: ____________  Подпись: ____________`},
+{n:'Заявление по вопросам отпуска по беременности и родам',f:['Кому (должность, ФИО руководителя)','Организация','Ваше ФИО','Должность','Дата, с которой прошу отпуск'],t:f=>`${f[0]}\n${f[1]}\nот ${f[2]}, ${f[3]}\n\nЗАЯВЛЕНИЕ\n\nПрошу предоставить мне отпуск по беременности и родам с ${f[4]} на основании листка о временной нетрудоспособности (прилагается).\n\nДата: ____________  Подпись: ____________`},
+{n:'Обращение о нарушении трудовых гарантий',f:['Кому (должность, ФИО руководителя)','Организация','Ваше ФИО','Должность','Описание нарушения'],t:f=>`${f[0]}\n${f[1]}\nот ${f[2]}, ${f[3]}\n\nОБРАЩЕНИЕ\n\nСообщаю о следующих обстоятельствах: ${f[4]}\nПрошу рассмотреть обращение и дать письменный ответ.\n\nДата: ____________  Подпись: ____________`}];
+function docSel(){const i=+document.getElementById('ds').value,d=D[i];document.getElementById('df').innerHTML=d.f.map((l,j)=>`<label>${l}<input data-j="${j}"></label>`).join('');docGen()}
+function docGen(){const i=+document.getElementById('ds').value,v=[...document.querySelectorAll('#df input')].map(x=>x.value||'__________');document.getElementById('dt').value=D[i].t(v)}
+const dl=(n,b,t)=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([b],{type:t}));a.download=n;a.click()};
+// Навигатор
+const N=[
+['Работодатель задерживает заработную плату',['Зафиксируйте период и сумму задолженности.','Направьте письменное обращение работодателю и сохраните доказательство вручения.','При отсутствии ответа обратитесь в государственную инспекцию труда.','При необходимости — в суд.'],'Договор, расчётные листки, выписка со счёта, копия обращения.'],
+['Меня заставляют написать заявление об увольнении',['Не подписывайте документ под давлением.','Попросите изложить требование письменно.','Сохраните переписку и фиксируйте даты.','Обратитесь в инспекцию труда; при увольнении — оспорьте его в установленном порядке.'],'Договор, переписка, приказы, показания свидетелей.'],
+['Нарушены гарантии беременной работницы',['Подготовьте справку о беременности.','Направьте работодателю письменное обращение.','Обратитесь в инспекцию труда.','Оцените возможность обращения в суд с юристом.'],'Справка, приказы, письменные обращения, хронология событий.'],
+['Работаю без оформленного договора',['Запросите письменный договор и приказ о приёме.','Соберите доказательства работы (переписка, пропуск, переводы).','Обратитесь в инспекцию труда.'],'Переписка, чеки, переводы, пропуск, свидетельские данные.'],
+['Работодатель отказывается предоставлять отпуск',['Подайте письменное заявление.','Запросите письменный ответ.','Обратитесь в инспекцию труда.'],'Заявление, график отпусков, договор.']];
+// Тест
+const Q=[['Как часто, согласно кодексу, должна выплачиваться заработная плата?',['Раз в квартал','Не реже одного раза в месяц','По усмотрению работодателя'],1,'Кодекс требует выплату не реже одного раза в месяц.'],
+['Нормальная продолжительность рабочего времени в неделю:',['Не более 40 часов','Не более 48 часов','Не более 36 часов'],0,'Нормальная продолжительность — не более 40 часов в неделю.'],
+['Минимальная продолжительность ежегодного оплачиваемого отпуска:',['14 календарных дней','24 календарных дня','30 рабочих дней'],1,'Не менее 24 календарных дней.'],
+['Общая продолжительность отпуска по беременности и родам при обычных родах:',['126 календарных дней','90 календарных дней','180 календарных дней'],0,'70 дней до и 56 дней после родов — всего 126.'],
+['Допустим ли отказ в приёме на работу только из-за беременности?',['Да','Нет, это дискриминация','Да, если работодатель так решил'],1,'Дискриминация в сфере труда запрещена.'],
+['Работодатель настаивает на «добровольном» заявлении об увольнении. Что делать?',['Подписать','Не подписывать под давлением и обратиться в инспекцию труда','Игнорировать'],1,'Принуждение к увольнению может быть нарушением.']];
+let qi=0,qs=0;
+function quiz(){const q=document.getElementById('qz');if(qi>=Q.length){q.innerHTML=`<h3>Результат: ${qs} из ${Q.length} (${Math.round(qs/Q.length*100)}%)</h3><button class="btn" onclick="qi=0;qs=0;quiz()">Пройти заново</button>`;return}
+const x=Q[qi];q.innerHTML=`<p>Вопрос ${qi+1} из ${Q.length}</p><h3>${x[0]}</h3>`+x[1].map((o,i)=>`<button class="opt" data-i="${i}">${o}</button>`).join('')+'<div id="qe"></div>';
+q.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{const i=+b.dataset.i;if(i===x[2])qs++;q.querySelectorAll('.opt').forEach(z=>{z.disabled=true;z.classList.add(+z.dataset.i===x[2]?'ok':'no');if(+z.dataset.i!==x[2]&&z!==b)z.classList.remove('no')});
+document.getElementById('qe').innerHTML=`<div class="note"><b>${i===x[2]?'Верно.':'Неверно.'}</b> ${x[3]}</div>${SRC}<button class="btn" onclick="qi++;quiz()">Далее</button>`})}
+// Страницы
+const dirs=[['Egov.kz — портал электронного правительства','Подача обращений и получение госуслуг','https://egov.kz'],['Gov.kz — единая платформа госорганов','Официальные сайты и обращения в государственные органы, включая органы труда','https://www.gov.kz'],['Enbek.kz — электронная биржа труда','Государственный портал по вопросам занятости и трудовых отношений','https://enbek.gov.kz'],['Adilet — информационно-правовая система','Официальные тексты нормативных актов','https://adilet.zan.kz/rus'],['Paragraf — правовая система','Тексты актов с комментариями','https://prg.kz']];
+const P={
+home:()=>`<div class="hero"><div><h1>${'MATERNLEX — защита трудовых прав'.split(' ').map((w,i)=>`<span style="animation-delay:${i*.18}s">${w}</span>`).join(' ')}</h1><p style="color:var(--tx2)">Правовая информация о трудовых отношениях в Республике Казахстан. Защита работников, специальные гарантии беременных женщин и матерей, обязанности работодателей.</p><div class="by">Создатель проекта MATERNLEX — <b>Қуандық Алуа Дәуренқызы</b><br>Автор и разработчик образовательной Legal Tech-платформы, направленной на защиту трудовых прав беременных женщин и матерей в Республике Казахстан</div><a class="btn" href="#workers">Изучить трудовые права</a><a class="btn o" href="#preg">Права беременных женщин</a><a class="btn o" href="#check">Проверить трудовой договор</a></div>
+<div class="card tilt"><h3>Актуальное законодательство</h3><p>Трудовой кодекс РК от 23.11.2015 № 414-V ЗРК, в редакции с изменениями 2026 года.</p><p>${CHK}</p><a href="${AD}" target="_blank" rel="noopener">Открыть на Adilet</a></div></div>
+<div class="sticky"><div><div id="circ"></div><div class="th"><h3>Достоверная правовая база</h3><p>Ссылки на Трудовой кодекс РК (Adilet, Paragraf) в каждом материале.</p></div><div class="th"><h3>Локальная проверка</h3><p>Анализ договора и создание заявлений прямо в браузере, без передачи данных на сервер.</p></div><div class="th"><h3>Защита материнства</h3><p>Пошаговые алгоритмы для беременных женщин, матерей и HR-специалистов.</p></div></div></div>
+<h2>Разделы</h2><div class="grid">${[['workers','Основные трудовые права','Договор, оплата, время, увольнение'],['preg','Гарантии беременным и матерям','Отпуска, защита от увольнения'],['hr','Обязанности работодателей','Чек-листы для HR'],['check','Проверка трудового договора','Локально, без отправки текста'],['docs','Генератор документов','Заявления и обращения'],['nav','Правовой навигатор','Что делать, если…'],['quiz','Тестирование','Проверьте знания']].map(c=>`<a href="#${c[0]}" style="text-decoration:none;color:inherit"><div class="card tilt"><h3>${c[1]}</h3><p>${c[2]}</p></div></a>`).join('')}</div>`,
+workers:()=>`<h1>Права работников</h1>`+A.filter(x=>x.c=='w').map(artHTML).join(''),
+preg:()=>`<h1>Права беременных женщин и матерей</h1>`+A.filter(x=>x.c=='p').map(artHTML).join('')+'<div class="note">Не всякая ситуация автоматически подпадает под одну и ту же гарантию: учитывайте условия и исключения кодекса.</div>',
+hr:()=>`<h1>Работодателям и HR</h1>`+A.filter(x=>x.c=='h').map(artHTML).join(''),
+check:()=>`<h1>Проверка трудового договора</h1><textarea id="ct" placeholder="Вставьте текст договора"></textarea><button class="btn" onclick="check()">Проверить договор</button><button class="btn o" onclick="document.getElementById('ct').value='';document.getElementById('cr').innerHTML=''">Очистить</button><div id="cr"></div>`,
+docs:()=>`<h1>Библиотека и генератор документов</h1><select id="ds" onchange="docSel()">${D.map((d,i)=>`<option value="${i}">${d.n}</option>`).join('')}</select><div id="df"></div><textarea id="dt" style="min-height:300px"></textarea><button class="btn" onclick="navigator.clipboard.writeText(dt.value).then(()=>alert('Скопировано'),()=>alert('Не удалось скопировать: выделите текст вручную'))">Скопировать</button><button class="btn o" onclick="dl('document.doc','<meta charset=utf-8><pre style=font-family:Times;font-size:14pt>'+dt.value.replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</pre>','application/msword')">Скачать (Word)</button><button class="btn o" onclick="window.print()">Печать / PDF</button><button class="btn o" onclick="docSel()">Сбросить</button><div class="note">Представленный образец является универсальным шаблоном. Перед использованием необходимо проверить его соответствие конкретным обстоятельствам и действующему законодательству Республики Казахстан. Данные обрабатываются локально.</div>`,
+nav:()=>`<h1>Правовой навигатор: что делать, если…</h1><select id="ns" onchange="navShow()"><option value="">Выберите ситуацию</option>${N.map((n,i)=>`<option value="${i}">${n[0]}</option>`).join('')}</select><div id="nr"></div>`,
+quiz:()=>`<h1>Тестирование</h1><div class="card" id="qz"></div>`,
+law:()=>`<h1>Законодательство</h1><div class="card"><h3>Трудовой кодекс Республики Казахстан</h3><p>Кодекс от 23 ноября 2015 года № 414-V ЗРК. Дата проверки: ноябрь 2026 г. В 2026 году в кодекс вносились изменения.</p><a class="btn" href="${AD}" target="_blank" rel="noopener">Adilet</a><a class="btn o" href="${PG}" target="_blank" rel="noopener">Paragraf</a></div><h2 style="margin-top:30px">Источники и справочник</h2><input id="dq" placeholder="Поиск по названию" oninput="dirF()"><div class="grid" id="dg"></div>`,
+search:()=>`<h1>Поиск по материалам</h1><input id="sq" placeholder="Например: беременность и увольнение" oninput="srch()"><div id="sr"></div>`,
+privacy:()=>`<h1>Политика конфиденциальности</h1><div class="card"><p>Сайт MATERNLEX не собирает персональные данные: на нём нет регистрации, личных кабинетов и форм обращения, не запрашиваются ФИО, телефон, ИИН и адрес.</p><p>Текст трудового договора, ответы теста, поисковые запросы и содержимое генератора документов обрабатываются только в вашем браузере и никуда не отправляются. В localStorage сохраняются лишь настройки темы.</p><p>Для отображения шрифтов подключается Google Fonts, поэтому браузер обращается к серверам Google.</p></div>`};
+function navShow(){const v=document.getElementById('ns').value;document.getElementById('nr').innerHTML=v===''?'':(n=>`<div class="card"><h3>${n[0]}</h3><ol>${n[1].map(s=>`<li>${s}</li>`).join('')}</ol><p><b>Что сохранить:</b> ${n[2]}</p><div class="note">Результат рассмотрения обращения или спора не гарантирован.</div>${SRC}</div>`)(N[v])}
+function dirF(){const q=dq.value.toLowerCase();dg.innerHTML=dirs.filter(d=>d[0].toLowerCase().includes(q)).map(d=>`<div class="card tilt"><h3>${d[0]}</h3><p>${d[1]}</p><a class="btn" href="${d[2]}" target="_blank" rel="noopener">Перейти на официальный сайт</a></div>`).join('')||'<p>Ничего не найдено.</p>'}
+function srch(){const q=sq.value.trim().toLowerCase();if(!q){sr.innerHTML='';return}const w=q.split(/\s+/);const r=A.map(x=>{const h=(x.t+' '+x.s+' '+x.g).toLowerCase();return[x,w.reduce((s,k)=>s+(h.includes(k)?1:0)+(x.t.toLowerCase().includes(k)?2:0),0)]}).filter(a=>a[1]>0).sort((a,b)=>b[1]-a[1]);
+const hl=s=>w.reduce((t,k)=>t.replace(new RegExp('('+k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi'),'<mark>$1</mark>'),s);
+sr.innerHTML=r.length?r.map(a=>`<div class="card" style="margin:10px 0"><small>${CAT[a[0].c]}</small><h3>${hl(a[0].t)}</h3><p>${hl(a[0].s)}</p><a class="btn o" href="#${a[0].c=='w'?'workers':a[0].c=='p'?'preg':'hr'}">Подробнее</a> <a href="${AD}" target="_blank" rel="noopener">Adilet</a> · <a href="${PG}" target="_blank" rel="noopener">Paragraf</a></div>`).join(''):'<p>По вашему запросу материалы не найдены. Попробуйте изменить формулировку или выбрать другую категорию.</p>'}
+const MENU=[['home','Главная'],['workers','Права работников'],['preg','Права беременных'],['hr','Работодателям и HR'],['check','Проверка договора'],['docs','Документы'],['nav','Навигатор'],['quiz','Тестирование'],['law','Законодательство'],['search','Поиск']];
+
+const TL=[['Трудоустройство','Право на равный доступ к труду без дискриминации, в том числе по признаку беременности.','Документы для приёма, предусмотренные кодексом.','Не отказывать по необоснованным причинам; при отказе объяснять причину.','Запросить причину отказа письменно.'],
+['Заключение трудового договора','Право на письменный договор с обязательными условиями.','Договор, приказ о приёме.','Оформить договор и ознакомить работника под подпись.','Потребовать экземпляр договора.'],
+['Начало трудовой деятельности','Право на своевременную оплату, отдых и безопасные условия труда.','Табель, расчётные листки.','Соблюдать условия договора, режим времени и сроки выплат.','Сохранять документы и фиксировать нарушения.'],
+['Период беременности','Усиленная защита от увольнения и ограничения на условия труда, предусмотренные кодексом.','Справка о беременности.','Учитывать специальные гарантии при изменении условий труда.','Уведомить работодателя письменно, сохранить копию.'],
+['Отпуск по беременности и родам','Оплачиваемый отпуск: общая продолжительность 126 календарных дней при обычных родах.','Листок нетрудоспособности, заявление.','Оформить приказ; порядок выплат определяется отдельным законодательством.','Подать заявление и сохранить копию.'],
+['Отпуск по уходу за ребёнком','Право на отпуск без сохранения заработной платы до достижения ребёнком трёх лет.','Свидетельство о рождении, заявление.','Оформить приказ, сохранить место работы согласно кодексу.','Подать заявление, уточнить условия письменно.'],
+['Возвращение к работе','Гарантии возвращения к работе, предусмотренные кодексом.','Заявление о выходе, приказ.','Предоставить прежнюю работу в случаях, предусмотренных кодексом.','Уточнить условия до выхода.'],
+['Защита прав после возвращения','Защита от дискриминации и необоснованного изменения условий.','Приказы, переписка, договор.','Не ухудшать условия вне оснований, допустимых законом.','Обратиться в инспекцию труда или суд.']];
+const CK=[['Работодатель угрожает увольнением',['Выяснить основание и требовать его письменно','Проверить договор и приказы','Сохранить переписку и записи дат','Подготовить письменное обращение работодателю','Изучить нормы кодекса об основаниях расторжения','Обратиться в государственную инспекцию труда']],
+['Работодатель задерживает заработную плату',['Выяснить период и сумму долга','Проверить договор и расчётные листки','Сохранить выписки со счёта','Направить письменное обращение','Изучить нормы кодекса об оплате труда','Обратиться в инспекцию труда']],
+['Давление из-за беременности',['Подготовить справку о беременности','Вести хронологию событий','Сохранить письма и приказы','Направить письменное обращение','Изучить нормы о гарантиях беременным и о дискриминации','Обратиться в инспекцию труда']],
+['Работодатель отказывает в отпуске',['Подать письменное заявление','Проверить график отпусков и договор','Запросить письменный ответ','Изучить нормы об отпусках','Обратиться в инспекцию труда']]];
+const CS=[['Увольнение беременной работницы','Работнице, которая сообщила о беременности, предлагают написать заявление «по собственному желанию».',['Подписать, чтобы избежать конфликта','Не подписывать под давлением, подготовить письменное обращение и обратиться в инспекцию труда','Уйти без оформления'],1,'Учебная модель. Принуждение к увольнению может быть нарушением; кодекс ограничивает расторжение с беременными по инициативе работодателя, исключения предусмотрены законом. Нужна индивидуальная оценка.'],
+['Задержка заработной платы','Зарплата не выплачивается более месяца, работодатель обещает «выплатить позже».',['Ждать без обращений','Направить письменное требование и сохранить доказательства, затем обратиться в инспекцию труда','Прекратить работу без уведомления'],1,'Учебная модель. Кодекс требует выплаты не реже одного раза в месяц; письменное обращение и доказательства усиливают позицию работника.'],
+['Отказ в приёме из-за беременности','Кандидатке отказывают на собеседовании, ссылаясь на беременность.',['Это допустимо','Это может быть дискриминацией; запросить письменный отказ и сохранить переписку','Скрывать беременность навсегда'],1,'Учебная модель. Дискриминация в сфере труда запрещена; важна реальная причина отказа и доказательства.']];
+P.timeline=()=>`<h1>MATERNLEX TIMELINE — ваши трудовые права по этапам</h1><div class="grid">${TL.map((t,i)=>`<button class="opt" onclick="tlS(${i})">${i+1}. ${t[0]}</button>`).join('')}</div><div id="tl" class="card" style="margin-top:18px">Выберите этап.</div>`;
+window.tlS=i=>{const t=TL[i];document.getElementById('tl').innerHTML=`<h3>${t[0]}</h3><p><b>Права и гарантии:</b> ${t[1]}</p><p><b>Документы:</b> ${t[2]}</p><p><b>Обязанности работодателя:</b> ${t[3]}</p><p><b>Действия работника:</b> ${t[4]}</p>${SRC}`};
+P.checklist=()=>`<h1>MATERNLEX CHECKLIST</h1><select id="ks" onchange="ckS()"><option value="">Выберите ситуацию</option>${CK.map((c,i)=>`<option value="${i}">${c[0]}</option>`).join('')}</select><div id="kl"></div>`;
+window.ckS=()=>{const v=ks.value;if(v===''){kl.innerHTML='';return}const c=CK[v];kl.innerHTML=`<div class="card">${c[1].map((x,i)=>`<label style="display:block;margin:8px 0"><input type="checkbox" style="width:auto" onchange="ckP()"> ${x}</label>`).join('')}<p id="kp"><b>Прогресс: 0%</b></p><button class="btn o" onclick="ckR()">Сбросить отметки</button><button class="btn o" onclick="ckC()">Скопировать список</button><button class="btn o" onclick="window.print()">Распечатать чек-лист</button><div class="note">Результат рассмотрения трудового спора не гарантирован. Данные не отправляются на сервер.</div>${SRC}</div>`};
+window.ckP=()=>{const b=[...kl.querySelectorAll('input')];kp.innerHTML=`<b>Прогресс: ${Math.round(b.filter(x=>x.checked).length/b.length*100)}%</b>`};
+window.ckR=()=>{kl.querySelectorAll('input').forEach(x=>x.checked=false);ckP()};
+window.ckC=()=>navigator.clipboard.writeText(CK[ks.value][0]+'\n'+CK[ks.value][1].map(x=>'- '+x).join('\n')).then(()=>alert('Скопировано'),()=>alert('Не удалось скопировать'));
+P.cases=()=>`<h1>MATERNLEX CASE STUDY</h1><div class="note">Учебные модели, а не реальные судебные дела.</div>${CS.map((c,i)=>`<div class="card" style="margin:12px 0"><h3>${c[0]}</h3><p>${c[1]}</p>${c[2].map((o,j)=>`<button class="opt" onclick="csA(${i},${j},this)">${o}</button>`).join('')}<div id="cs${i}"></div></div>`).join('')}`;
+window.csA=(i,j,b)=>{const c=CS[i];b.parentNode.querySelectorAll('.opt').forEach(z=>z.disabled=true);b.classList.add(j===c[3]?'ok':'no');document.getElementById('cs'+i).innerHTML=`<div class="note"><b>${j===c[3]?'Верно.':'Подумайте ещё.'}</b> ${c[4]}</div>${SRC}`};
+MENU.splice(8,0,['timeline','Timeline'],['checklist','Чек-лист'],['cases','Кейсы']);
+document.getElementById('nav').innerHTML=MENU.map(m=>`<a href="#${m[0]}" data-p="${m[0]}">${m[1]}</a>`).join('');
+bg.onclick=()=>nav.classList.toggle('o');
+function route(){const p=(location.hash||'#home').slice(1);const k=P[p]?p:'home';app.innerHTML=`<section class="p on">${P[k]()}</section>`;
+document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('on',a.dataset.p===k));nav.classList.remove('o');window.scrollTo(0,0);
+if(k=='docs')docSel();if(k=='quiz'){qi=0;qs=0;quiz()}if(k=='law')dirF();
+if(k=='home')initHome()}
+function initHome(){const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+if(fine)document.querySelectorAll('.tilt').forEach(c=>{c.onmousemove=e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(700px) rotateY(${x*8}deg) rotateX(${-y*8}deg)`};c.onmouseleave=()=>c.style.transform=''});
+const s=document.querySelector('.sticky'),th=[...document.querySelectorAll('.th')],ci=document.getElementById('circ');
+onscroll=()=>{if(!s||!document.body.contains(s))return;const r=s.getBoundingClientRect(),p=Math.min(1,Math.max(0,-r.top/(r.height-innerHeight)));ci.style.transform=`scale(${.3+p*.9})`;const i=Math.min(2,Math.floor(p*3));th.forEach((t,j)=>t.classList.toggle('on',j===i))};onscroll()}
+// Тема
+const st=()=>{try{return JSON.parse(localStorage.getItem('mx')||'{}')}catch(e){return{}}};
+const ap=o=>{document.documentElement.dataset.m=o.m||'l';document.documentElement.dataset.s=o.s||'1';try{localStorage.setItem('mx',JSON.stringify(o))}catch(e){}};
+ap(st());tpt.onclick=()=>tpb.classList.toggle('o');
+tpb.querySelectorAll('button').forEach(b=>b.onclick=()=>{const o=st();if(b.dataset.m)o.m=b.dataset.m;if(b.dataset.s)o.s=b.dataset.s;ap(o)});
+addEventListener('hashchange',route);route();
+</script>
+</body>
+</html>
